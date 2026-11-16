@@ -1,0 +1,19 @@
+name: Docs preview build
+
+# Builds documentation PRs without credentials; the trusted publisher on the default branch
+# publishes the result. Keep this file name: the publisher trusts only this workflow file.
+on:
+  pull_request:
+    branches: [gh-pages]
+    types: [opened, synchronize, reopened, ready_for_review]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    uses: DiRoots-Limited/DiRoots.Public.Workflows/.github/workflows/docs-preview-build.yml@develop
+    with:
+      # Public docs site URL, including any project path.
+      site-url: https://diroots-mauro.github.io/DiRoots.Sandbox.ProSheets.Releases
+    # No secrets mapping and never secrets: inherit.
