@@ -12,7 +12,7 @@ permissions:
 
 jobs:
   build:
-    uses: DiRoots-Limited/DiRoots.Public.Workflows/.github/workflows/docs-preview-build.yml@develop
+    uses: DiRoots-Limited/DiRoots.Public.Workflows/.github/workflows/docs-preview-build.yml@8ba2b9bc6aa6f518e6e6df7b69ee041b21b80f15 # v1
     with:
       # Public docs site URL, including any project path.
       site-url: https://diroots-mauro.github.io/DiRoots.Sandbox.ProSheets.Releases
