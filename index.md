@@ -25,6 +25,6 @@ ProSheets is an Autodesk Revit Add-in to export Views and Sheets to PDF, DWG, DG
 
 [Download](https://diroots.com/revit-plugins/revit-to-pdf-dwg-dgn-dwf-nwc-ifc-and-images-with-prosheets/){: .btn .btn-di-orange }
 
-Preview flow test ProSheets first commit.
+Preview flow test ProSheets second commit.
 
 ![Preview flow test image]({{ '/assets/images/preview-flow-test.png' | relative_url }})
