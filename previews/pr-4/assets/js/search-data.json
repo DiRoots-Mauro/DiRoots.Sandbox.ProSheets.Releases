@@ -1,0 +1,494 @@
+{"0": {
+    "doc": "Create Tab",
+    "title": "Create Tab",
+    "content": " ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/ui-components/Create-tab.html",
+    "relUrl": "/docs/ui-components/Create-tab.html"
+  },"1": {
+    "doc": "Create Tab",
+    "title": "Table of contents",
+    "content": ". | User Interface Overview | Export Location . | Local | Forma . | Install and authorize the DiRoots Connector | Login to Forma | Folder selection | Custom attributes mapping | . | Folder organization | Publish the cloud model | Environment variables . | Supported environment variables: | . | Generate Export Report . | Add parameter columns to the report | . | . | Manage the export queue . | Search | Filter views, sheets, and formats | Exclude and restore export items | . | Paper Size and Orientation . | Manually set the Paper Size and Orientation | . | Export results and retry | Scheduling Assistant . | Schedule Publish | Opening worksets option | Linked models in scheduled exports | Before and during a scheduled export | Wake up computer to run this task | Scheduling Assistant Legend . | Scheduling Assistant Status | Scheduling Assistant Update | . | . | . ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/ui-components/Create-tab.html#table-of-contents",
+    "relUrl": "/docs/ui-components/Create-tab.html#table-of-contents"
+  },"2": {
+    "doc": "Create Tab",
+    "title": "User Interface Overview",
+    "content": "Note: the version on the image may not reflect the latest version of ProSheets. ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/ui-components/Create-tab.html#user-interface-overview",
+    "relUrl": "/docs/ui-components/Create-tab.html#user-interface-overview"
+  },"3": {
+    "doc": "Create Tab",
+    "title": "Export Location",
+    "content": "ProSheets allows you to export files locally, to Autodesk Forma, or to both destinations in the same export job. Use the checkboxes under “Export Rules” to select “Local”, “Forma”, or both. Select the corresponding tab to configure each export location. When both options are selected, ProSheets saves the generated files to the configured local folder and uploads them to the selected Forma folder in the same export job. Local . Use “Local” to export files to a folder on your computer or to a shared network drive. Select the “Local” checkbox and open the “Local” tab. Use the “Folder Selection” field to enter the export path, or click the ellipsis button (…) to select a folder. Forma . ProSheets can export files to Autodesk Forma Document Management (premium feature). Select the option “Forma” and choose a Hub, Project, and folder from your Forma account as the export location. Install and authorize the DiRoots Connector . Before ProSheets users can export files to an Autodesk Forma Hub (previously called an account), a Hub Administrator must install and authorize the DiRoots Connector for that Hub. Steps for Hub Administrators: . | Sign in to Autodesk Forma and open “Hub Admin” for the required Hub. | Open “Apps”. | Select “DiRoots Connector for Autodesk Forma” from the App Gallery. | Click “Install”. | Review the requested permissions, then click “Authorize and Install”. | . Install the connector separately for each Hub where ProSheets will be used. ProSheets users can then follow the steps below to log in to Forma. Autodesk previously used the terms “account” and “Account Admin” for “Hub” and “Hub Admin”. Login to Forma . Steps: . | Select the “Forma” checkbox and open the “Forma” tab. | Click on “Login to Forma” and log in with your Autodesk account in the browser window. | Return to ProSheets. | . After logging in, ProSheets will display the Forma Hubs and Projects available to your Autodesk account. If a Hub is not available, contact your Hub Administrator to confirm that the DiRoots Connector has been added and that you have access to the Hub. Folder selection . After logging in, select the Hub, Project, and folder where the exported files will be saved. Steps: . | Select a Hub from the dropdown list. | Select a Project from the dropdown list. | Click the ellipsis button (…) next to the folder path to open the Forma Explorer. | Browse the Autodesk Docs folder structure and select the destination folder. | . The Forma Explorer allows you to expand and collapse folders and displays information such as name, version, last updated date, updated by, and description. After selecting a folder, the Forma path will be displayed in the Create tab. After ProSheets generates each export, it uploads the file to the selected Forma folder. If a file with the same name already exists, the upload creates a new version of the existing file. Note: the version on the image may not reflect the latest version of ProSheets. Custom attributes mapping . ProSheets can fill the custom attributes of the selected Forma project with the values of Revit sheet parameters (premium feature), so each uploaded sheet carries your project data (for example a status, a revision code, or the name of the author). Steps: . | Select the Hub, Project, and folder as described above. | Click the gear button next to the folder path (“Map Revit parameters to Forma custom attributes”) to open “Forma Attributes Mapping”. | In the “Sheet parameter” column, choose the Revit sheet parameter that fills each custom attribute. Leave “(none)” for the attributes you don’t want to fill. | Click “OK”. | . Note: the version on the image may not reflect the latest version of ProSheets. ProSheets writes the values after each file is uploaded. | Text, date, and drop-down list attributes can be mapped. Large drop-down lists cannot be mapped. | For a drop-down list, the value must match one of the list options (upper and lower case are ignored). For a date, the value must be a valid date. Text values longer than 255 characters are not written. | Empty parameter values are skipped. When a value cannot be written, the file is still uploaded. The export result says that some files were uploaded without their custom attribute values, and the ProSheets log gives the reason for each value that was not written. | Each list in the “Sheet parameter” column shows only the parameters whose values on the selected sheets fit the attribute: dates for a date attribute, and values that all match the list options for a drop-down list. | “Cannot be edited” is shown for an attribute that is not attached to the selected folder, and for a large drop-down list. To map an attribute that is not attached, attach it to the folder in Forma. | Create the custom attributes in Forma first. If the project has none, ProSheets shows a message instead of opening “Forma Attributes Mapping”. | . Custom attribute values are written only to files that contain one sheet. They are not written to files that combine several sheets, or to files exported from views. Folder organization . Use the radio buttons to choose how ProSheets organizes the exported files. | “Save all files in the same folder location” - saves all exported files in the selected folder. | “Save and split files by file format” - creates a subfolder for each exported file format. | . Publish the cloud model . When the Revit model is a cloud model in an ACC or Forma project, scheduled exports can also publish the model to its original location in Forma (premium feature). Select “Publish the model (original location)”. The option is shown below the folder organization options when the “Forma” tab is open, and is available after you log in to Forma. When the schedule runs, ProSheets asks Autodesk to publish the latest synchronized version of the main model. Synchronize your changes before the schedule runs. Linked models are not published. The result of the publication is shown in the result of the scheduled export and in the report. The option requires an ACC/Forma cloud model and Revit 2022 or newer. BIM 360 projects are not supported. The option is saved with the schedule, and the model is published only by scheduled exports (see Scheduling Assistant), not by a manual export. Environment variables . You can use environment variables to build the saving path. Supported environment variables: . | %UserName% - current Windows username | %Y - the current year (e.g., 2024) | %YY - the current year (e.g., 24) | %YYYY - the current year (e.g., 2024) | %m - the current month without padding zero (e.g., 6) | %mm - the current month with padding zero (e.g., 06) | %d - the current day without padding zero (e.g., 5) | %dd - the current day with padding zero (e.g., 05) | %H - the current hour without padding zero (e.g., 8) | %HH - the current hour with padding zero (e.g., 08) | %M - the current minute without padding zero (e.g., 1) | %MM - the current minute with padding zero (e.g., 01) | %S - the current seconds without padding zero (e.g., 4) | %SS - the current seconds with padding zero (e.g., 04) | %DrawingName% - the filename | %IssueDate% - the Sheet Issue Date builtin parameter | %CurrentRevision% - the Current Revision builtin parameter of the sheet | %CurrentRevisionDate% - the Current Revision Date builtin parameter of the sheet | . The date and time variables are case-sensitive. You can also use Windows environment variables, such as %APPDATA%. To change the date format of %IssueDate% or %CurrentRevisionDate%, add the format of the value in Revit and the format you want, for example %IssueDate(dd.MM.yyyy, yyyy-MM-dd)%. When sheets/views are combined into one file, %IssueDate%, %CurrentRevision%, and %CurrentRevisionDate% are left empty. Local export example: . Input: . C:\\Users\\Joao_\\OneDrive - DiRoots Limited\\Documents\\DiRoots\\ProSheets\\ExportFiles\\%UserName%-%Y-%m-%d-%H-%M-%S . Output: . Generate Export Report . Use the report dropdown to choose whether ProSheets generates a report after the export. The report can be generated in .XLSX (Excel spreadsheet) or .CSV (comma-separated values). The same report option applies to Local and Forma exports. Note: the version on the image may not reflect the latest version of ProSheets. Information included in the report: . | The files that were created: “View/Sheet Name”, “Job”, “Format”, “File Name”, “Size”, “Local Path”, “Forma Path” (Forma exports), “Export Time”, and “Status” (“Successful” or “Error”) | “Total Export Time”, “Date”, “Job Started”, and “Job Finished” of the export job | The parameter columns you added (see Add parameter columns to the report) | For scheduled exports that publish the cloud model, the result of the publication (see Publish the cloud model) | . When the export includes linked models, the rows are grouped by model. In the Excel report, the “Status” cell is colored: green for a successful export, amber for a successful export with a warning (for example an empty file), and red for an error. The CSV report has no colors. The report uses the same language as ProSheets. Example: . Add parameter columns to the report . You can add sheet and view parameters as extra columns in the Excel or CSV report. Steps: . | Select “Save Report to Excel” or “Save Report to CSV”. A gear button appears next to the report dropdown. | Click the gear button (“Add parameter columns to the report”). | Select a parameter in the list of available parameters and click the arrow button to add it. Repeat for each parameter you need. | Click “OK”. | . Note: the version on the image may not reflect the latest version of ProSheets. ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/ui-components/Create-tab.html#export-location",
+    "relUrl": "/docs/ui-components/Create-tab.html#export-location"
+  },"4": {
+    "doc": "Create Tab",
+    "title": "Manage the export queue",
+    "content": "Use the search and filters in the Create tab to find rows in the export table without changing what ProSheets exports. Search . Enter part of a sheet or view number or name in the search field. ProSheets displays rows with matching values in the “View/Sheet Number” or “View/Sheet Name” columns. Filter views, sheets, and formats . Use the Views/Sheets (V/S) filter in the column header to display rows by item type: . | “All Views/Sheets”: Displays both sheets and views. | “Sheets”: Displays only sheets. | “Views”: Displays only views. | . Use the format filter to display rows for one file format. The dropdown includes only the formats selected in the Format tab. Select “All Formats” to clear the format filter. You can combine the search, Views/Sheets, and format filters. Filters only change which rows are displayed. Hidden items remain in the export queue and will still be exported. Remove an item from the queue to stop it from being exported. Note: the version on the image may not reflect the latest version of ProSheets. Exclude and restore export items . To exclude items from the export, select one or more rows, right-click the selection, and select “Remove item(s) from queue”. Removed items are not exported. “Show Excluded Items” is a Premium feature. When selected, the excluded items are shown in halftone. To add them back to the export queue, select them, right-click the selection, and select “Restore item(s) to queue”. Restored items are included in the export again. Note: the version on the image may not reflect the latest version of ProSheets. ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/ui-components/Create-tab.html#manage-the-export-queue",
+    "relUrl": "/docs/ui-components/Create-tab.html#manage-the-export-queue"
+  },"5": {
+    "doc": "Create Tab",
+    "title": "Paper Size and Orientation",
+    "content": "By default, ProSheets automatically detects the paper size and orientation of your sheets. The detection uses the title block with the greatest width on the sheet (the built-in parameters Sheet Width and Sheet Height; the height decides between title blocks of the same width). A sheet is landscape when its width is equal to or greater than its height. Manually set the Paper Size and Orientation . The auto-detection works in most cases, but you can also set a specific size and orientation. Steps: . | Select the sheets/views whose paper size and orientation you want to change. | Use the “Set Paper Size” and “Set Orientation” dropdown lists, or right-click the selection and select “Paper Size” or “Orientation”. | . Note: the version on the image may not reflect the latest version of ProSheets. Right-click a row and select “Open Sheet” or “Open View” to open it in Revit. This is not available for sheets and views from linked models. Note: the version on the image may not reflect the latest version of ProSheets. ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/ui-components/Create-tab.html#paper-size-and-orientation",
+    "relUrl": "/docs/ui-components/Create-tab.html#paper-size-and-orientation"
+  },"6": {
+    "doc": "Create Tab",
+    "title": "Export results and retry",
+    "content": "Click “Create” to start the export. While ProSheets exports, the “Progress” column shows the result of each row: green for a successful export, orange for a successful export with a warning, and yellow for a failed export, with a note that explains the problem. To stop the export, click “Cancel” and confirm with “Cancel export”. Sheets already exported remain in the output folder. When the export finishes, ProSheets shows “Export completed.”, or “Export failed.” if any row failed. After a Forma export without failed rows, it also says how many files were uploaded to Forma, or that some files were not uploaded. Use the buttons to continue: . | “Open Folder” - opens the output folder (Local exports). | “Open Forma” - opens the Forma folder (Forma exports). | “Retry” or “Retry Failed Publishes” - exports the failed rows again with the same settings. When a sheet/view of a combined file failed, the whole combined file is exported again. | . You can also right-click the table in the Create tab and select “Retry Failed Publishes”. Note: the version on the image may not reflect the latest version of ProSheets. ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/ui-components/Create-tab.html#export-results-and-retry",
+    "relUrl": "/docs/ui-components/Create-tab.html#export-results-and-retry"
+  },"7": {
+    "doc": "Create Tab",
+    "title": "Scheduling Assistant",
+    "content": "The Scheduling Assistant (premium feature) allows you to define the views/sheets and their settings to be exported and schedule the export at an exact date and time, or repeat it. Scheduled exports run even when Revit is closed: ProSheets opens the model in a new Revit instance with the worksets you choose (see Opening worksets option). If the model is open in Revit when the schedule runs, ProSheets can export it in that session instead (see Before and during a scheduled export). Schedule Publish . Steps: . | Switch on “Schedule Publish” in the Create tab. | Click the date and time field. In the calendar, under “Choose Starting Date and Time:”, pick the date and the time, then click “Apply”. Click “Undo changes” to go back to the previous date and time. | Use the repeat dropdown to define whether the export will be repeated: “Does not repeat”, “Weekly”, or “Monthly”. | If you choose “Weekly”, choose the days of the week on which the export runs. | Use the checkbox to select the days. | . | . To stop the scheduled exports, switch off “Schedule Publish”. | Save the model before you schedule it. Revit Server models cannot be scheduled. | For “Does not repeat”, choose a date and time in the future. A time that has already passed is not accepted. | The scheduled export opens the model in the Revit version in which you scheduled it. That Revit version must be installed on the computer. | . Note: the version on the image may not reflect the latest version of ProSheets. Opening worksets option . For a workshared model, choose which worksets open when the scheduled export opens the model: . | “Last Viewed” (file-based central models only) - opens the worksets that were open when the central model was last saved or synchronized. If that leaves every workset closed, ProSheets opens all worksets. | “All Worksets” - opens all worksets. | “Specify” - click the gear button to open “Worksets to open” and select the worksets. | . When the export runs in an open Revit session, the worksets that are open in that session are used. When ProSheets opens the model with “Specify” and none of its worksets is open (for example because the selected worksets were deleted), the export stops. Note: the version on the image may not reflect the latest version of ProSheets. Linked models in scheduled exports . Sheets and views that you select from linked models (see Export from linked models) are included in scheduled exports, so the main model and its links are exported together, unattended. When you select only sheets/views from linked models, the scheduled export opens the linked models without the main model, unless “Publish the model (original location)” is selected. Before and during a scheduled export . | By default, when you are signed in to Windows, ProSheets shows a 30-second countdown before a scheduled export starts. Click “Cancel” to skip this run, “Start now” to start it at once, or “Delay 10 min” to postpone it. After a delay, click “+10 min” to postpone it again. | If the model is open in a Revit session, the export runs in that session as soon as the model is the active model and the session is not busy. By default, ProSheets waits up to 5 minutes for this and then exports in a new Revit instance. Click “Start new instance” to stop waiting. If the model is not open, the export starts in a new Revit instance at once. | While the export runs, a progress window shows its progress. Click “Cancel” to stop the export. Sheets already exported remain in the output folder, and files already uploaded to Forma are not deleted. | By default, a Windows notification reports the result when the export finishes. | Before it exports, ProSheets checks that the opened model is the model you scheduled. If it is not, the export stops. Open the model in ProSheets, check it, and update the schedule. | After a scheduled export, ProSheets checks each exported file. A missing file gets the status “Error”. An empty file keeps the status “Successful” with a warning, shown in amber in the Excel report. A file that cannot be checked (for example on a network folder that is not available) keeps its status. | . Wake up computer to run this task . This option asks Windows to wake the computer from Sleep or Hibernate for a scheduled export. Windows settings and your computer’s configuration may prevent it from waking or running the task. Note: the version on the image may not reflect the latest version of ProSheets. | Wake timers: In Control Panel, go to Hardware and Sound &gt; Power Options &gt; Change plan settings &gt; Change advanced power settings &gt; Sleep &gt; Allow wake timers. Set the applicable On battery and Plugged in values to Enable. Important Wake Timers Only allows Windows system timers to wake the computer, but does not allow a ProSheets scheduled export to wake it. If you cannot change them, contact your IT administrator. | Modern Standby: Scheduled exports may not run while the computer is asleep. Use Hibernate, keep the computer plugged in, and set the plugged-in sleep timeout to Never. If Hibernate is unavailable, contact your IT administrator. | Computer or account unavailable: The task cannot run if the computer is shut down or the scheduling account is signed out. | . Scheduling Assistant Legend . The bottom bar of ProSheets shows whether the Scheduling Assistant is on. On the Selection tab, the refresh button next to it reloads the list of sheets and views and clears the selection. It does not update the schedule. Note: the version on the image may not reflect the latest version of ProSheets. Scheduling Assistant Status . When you switch on the Scheduling Assistant, it saves the current settings with the schedule. The status in the Create tab shows: . | “The Scheduling Assistant is off.” | “The Scheduling Assistant is up to date.” - the schedule uses your current settings. | “The Scheduling Assistant is not up to date.” - you changed settings after the schedule was saved. The scheduled export keeps using the saved settings until you update it. | . Note: the version on the image may not reflect the latest version of ProSheets. Scheduling Assistant Update . Whenever the Scheduling Assistant is not up to date, the update button next to the status becomes active. Click it to see a report of the changes. Click “Update” to save the changes to the schedule, or “Cancel” to keep the saved schedule. If you close ProSheets while the Scheduling Assistant is not up to date, ProSheets asks whether to close without updating. If you close, your changes are not saved to the schedule, and the schedule keeps running with its saved settings. Note: the version on the image may not reflect the latest version of ProSheets. If you want to find out more about ProSheets and explore detailed tutorials on how to use it, visit our YouTube channel. There, you’ll find a series of videos that can help answer questions and improve your knowledge. Be sure to check it out and subscribe to keep up to date with our news and tips! . DiRoots Channel . ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/ui-components/Create-tab.html#scheduling-assistant",
+    "relUrl": "/docs/ui-components/Create-tab.html#scheduling-assistant"
+  },"8": {
+    "doc": "ProSheets | Danish",
+    "title": "ProSheets tutorials and demo videos in Danish.",
+    "content": "If you have created content about ProSheets and you want to see it featured here, drop us an email at info@diroots.com . ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/Danish-tutorials.html#prosheets-tutorials-and-demo-videos-in-danish",
+    "relUrl": "/docs/Danish-tutorials.html#prosheets-tutorials-and-demo-videos-in-danish"
+  },"9": {
+    "doc": "ProSheets | Danish",
+    "title": "ProSheets | Danish",
+    "content": " ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/Danish-tutorials.html",
+    "relUrl": "/docs/Danish-tutorials.html"
+  },"10": {
+    "doc": "FAQs",
+    "title": "Frequently Asked Questions about ProSheets",
+    "content": "This section answers common questions about ProSheets. ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/FAQs.html#frequently-asked-questions-about-prosheets",
+    "relUrl": "/docs/FAQs.html#frequently-asked-questions-about-prosheets"
+  },"11": {
+    "doc": "FAQs",
+    "title": "Does ProSheets require PDF24?",
+    "content": "PDF24 is installed with ProSheets for the standard PDF export workflow. It is optional if you use the native Revit PDF exporter, which requires Revit 2022 or newer and a ProSheets Premium license. ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/FAQs.html#does-prosheets-require-pdf24",
+    "relUrl": "/docs/FAQs.html#does-prosheets-require-pdf24"
+  },"12": {
+    "doc": "FAQs",
+    "title": "Can I select another PDF printer?",
+    "content": "ProSheets supports its PDF24 printer and, with a Premium license in Revit 2022 or newer, the native Revit PDF exporter. ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/FAQs.html#can-i-select-another-pdf-printer",
+    "relUrl": "/docs/FAQs.html#can-i-select-another-pdf-printer"
+  },"13": {
+    "doc": "FAQs",
+    "title": "What is the printer called diroots.prosheets that I got after installing ProSheets?",
+    "content": "diroots.prosheets printer is a custom instance of PDF24 that ProSheets uses to set up its custom settings without affecting the main instance of PDF24. ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/FAQs.html#what-is-the-printer-called-dirootsprosheets-that-i-got-after-installing-prosheets",
+    "relUrl": "/docs/FAQs.html#what-is-the-printer-called-dirootsprosheets-that-i-got-after-installing-prosheets"
+  },"14": {
+    "doc": "FAQs",
+    "title": "Why can’t I see the PDFs being created in the output location?",
+    "content": "If you don’t see the PDF files appearing in the export path, it means that there are some issues with your settings. You can fix it, using one of the methods below. Method A . Open PDF24 -&gt; Settings -&gt; Printer Driver and confirm that your settings are as per the image below. Method B . | Uninstall ProSheets and PDF24. | Download and install the latest version of ProSheets from our website. | Restart your computer and try again. | . ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/FAQs.html#why-i-cant-see-the-pdfs-being-created-in-the-output-location",
+    "relUrl": "/docs/FAQs.html#why-i-cant-see-the-pdfs-being-created-in-the-output-location"
+  },"15": {
+    "doc": "FAQs",
+    "title": "Why does ProSheets tell me that my printer is in an error state?",
+    "content": "If ProSheets is telling you that your printer is in error state, it usually means that the Windows print services stopped working. Often, restarting your computer is enough to fix the problem. ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/FAQs.html#why-i-prosheets-tells-me-that-my-printer-is-in-an-error-state",
+    "relUrl": "/docs/FAQs.html#why-i-prosheets-tells-me-that-my-printer-is-in-an-error-state"
+  },"16": {
+    "doc": "FAQs",
+    "title": "Printer Permission Issue in ProSheets (Failed to access print parameters)",
+    "content": "Problem . If you receive an error stating: Unable to select Printer Printer Name or Failed to access print parameters, this typically points to a printer driver or permissions issue that prevents ProSheets from accessing complete printer information. Alternatively, it may indicate that no default printer is set on the system. The Revit Print API works by first querying the available printers on the machine and then configuring the selected printer based on the format settings. Unfortunately, if any printer driver on the system is problematic, the Revit Print API may enter an error state. Even if the problematic printer is not actively in use, this error can still occur. Restarting Revit is often required to reset the error. Solution . 1. Identify the Default Printer First, confirm that your system has a Default Printer. In Windows 10/11, there is an option called “Allow Windows to manage my default printer.” If this option is enabled, your system automatically sets a default printer. If this is disabled, manually assign a default printer from the list of available devices. If the default printer is correctly set and the issue persists, proceed to identify the problematic printer driver by systematically disabling printers until the error clears. 2. Verify Printer Permissions The user must have administrative permissions for the PDF24 Printer. To enable permissions: . | Go to Devices and Printers. | Right-click on PDF24 Printer and select Printer Properties. | Navigate to the Security tab. | Ensure the following options are enabled for your user: . | Manage this printer | Manage documents | . | . 3. Additional Considerations If your printers are created via a login script or group policy, the problematic printer may reappear with each login. If this occurs, contact your System Administrator for further assistance in identifying and resolving the problematic printer driver. Several users have reported that the root cause of this issue was linked to a network printer. Identifying and disabling this printer often resolved the error. By following these steps, you should be able to resolve printer-related issues when using DiRoots ProSheets and PDF24. ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/FAQs.html#printer-permission-issue-in-prosheets-failed-to-access-print-parameters",
+    "relUrl": "/docs/FAQs.html#printer-permission-issue-in-prosheets-failed-to-access-print-parameters"
+  },"17": {
+    "doc": "FAQs",
+    "title": "Why does ProSheets show “No Internet Connection”?",
+    "content": "If you see the error “Please check your internet connection” while using ProSheets, here’s what it means and how to fix it: . Why this happens . | License Verification: ProSheets needs an active internet connection to validate premium subscriptions. | Export Tracking (Free Version): Free users have a monthly export limit, which must be verified online. | . If your internet is working but the error still appears, it’s usually caused by your firewall, proxy, or antivirus blocking ProSheets/Revit. How to fix it . | Check firewall/antivirus: Make sure Revit/ProSheets is not blocked. | Whitelist these domains: . | *.diroots.com | *.dikeeper.com | dikeeper-prod-euw-api-app-eefmhef2hhevbsgr.westeurope-01.azurewebsites.net | . | Verify your connection: Confirm you can access other online resources while using Revit. | Check ProSheets logs (if the issue persists): . %localappdata%\\DiRoots\\ProSheets\\Log . Share the log files with our support team for further analysis. | . Special case: Offline environments . ProSheets does not work fully offline by default. If your organization requires an offline license (e.g., for secure IT environments), please contact DiRoots Support. Offline activation is available only under specific conditions. After restoring internet access or adjusting your firewall rules, ProSheets should work as expected. ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/FAQs.html#why-does-prosheets-show-no-internet-connection",
+    "relUrl": "/docs/FAQs.html#why-does-prosheets-show-no-internet-connection"
+  },"18": {
+    "doc": "FAQs",
+    "title": "FAQs",
+    "content": " ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/FAQs.html",
+    "relUrl": "/docs/FAQs.html"
+  },"19": {
+    "doc": "ProSheets Tips",
+    "title": "How to use it",
+    "content": "Now that you know ProSheets and have installed it, let’s learn some good practices for using it. These tips can help you improve your work and save a lot of time. ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/ProSheets-tips.html#how-to-use-it",
+    "relUrl": "/docs/ProSheets-tips.html#how-to-use-it"
+  },"20": {
+    "doc": "ProSheets Tips",
+    "title": "Table of contents",
+    "content": ". | Collapse and Expand window | Resize Window | Select multiple rows | Double-click and Drag and Drop | Right-click on the column header | Right-click on the row | . ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/ProSheets-tips.html#table-of-contents",
+    "relUrl": "/docs/ProSheets-tips.html#table-of-contents"
+  },"21": {
+    "doc": "ProSheets Tips",
+    "title": "Collapse and Expand window",
+    "content": "ProSheets plugin allow you to work with Revit while keeping the plugin window open, but you can get more space to work with Revit. All you have to do is double-clik on the window header to Collapse and Expand it. Note: the version on the image may not reflect the latest version of ProSheets. ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/ProSheets-tips.html#collapse-and-expand-window",
+    "relUrl": "/docs/ProSheets-tips.html#collapse-and-expand-window"
+  },"22": {
+    "doc": "ProSheets Tips",
+    "title": "Resize Window",
+    "content": "Mouse over the edges of the window and click and drag to extend or reduce the window. Note that, there is a limit to how much you can reduce the window, to ensure that all the information in the window is displayed. Note: the version on the image may not reflect the latest version of ProSheets. ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/ProSheets-tips.html#resize-window",
+    "relUrl": "/docs/ProSheets-tips.html#resize-window"
+  },"23": {
+    "doc": "ProSheets Tips",
+    "title": "Select multiple rows",
+    "content": "ProSheets plugins have a great advantage for making bulk actions and saving time. To make this task simpler, you don’t need to select row per row, just select one and press the Shift button in your keyboard and then select the last row. Now you have several rows selected to perform the batch actions. Note: the version on the image may not reflect the latest version of ProSheets. ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/ProSheets-tips.html#select-multiple-rows",
+    "relUrl": "/docs/ProSheets-tips.html#select-multiple-rows"
+  },"24": {
+    "doc": "ProSheets Tips",
+    "title": "Double-click and Drag and Drop",
+    "content": "Double-click or drag and drop do add or remove parameters to edit File Name. Note: the version on the image may not reflect the latest version of ProSheets. ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/ProSheets-tips.html#double-click-and-drag-and-drop",
+    "relUrl": "/docs/ProSheets-tips.html#double-click-and-drag-and-drop"
+  },"25": {
+    "doc": "ProSheets Tips",
+    "title": "Right-click on the column header",
+    "content": "Right-click on the column header and select properties/parameters to create a new column. Note: the version on the image may not reflect the latest version of ProSheets. ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/ProSheets-tips.html#right-click-on-the-column-header",
+    "relUrl": "/docs/ProSheets-tips.html#right-click-on-the-column-header"
+  },"26": {
+    "doc": "ProSheets Tips",
+    "title": "Right-click on the row",
+    "content": "Right-click on the sheet and open it. Note: the version on the image may not reflect the latest version of ProSheets. ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/ProSheets-tips.html#right-click-on-the-row",
+    "relUrl": "/docs/ProSheets-tips.html#right-click-on-the-row"
+  },"27": {
+    "doc": "ProSheets Tips",
+    "title": "ProSheets Tips",
+    "content": " ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/ProSheets-tips.html",
+    "relUrl": "/docs/ProSheets-tips.html"
+  },"28": {
+    "doc": "Profiles",
+    "title": "Profiles",
+    "content": " ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/ui-components/Profiles.html",
+    "relUrl": "/docs/ui-components/Profiles.html"
+  },"29": {
+    "doc": "Profiles",
+    "title": "Table of contents",
+    "content": ". | What’s saved in the profile | Creating Profiles | Use the profile as default | Importing Profiles | Deleting Profiles | . ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/ui-components/Profiles.html#table-of-contents",
+    "relUrl": "/docs/ui-components/Profiles.html#table-of-contents"
+  },"30": {
+    "doc": "Profiles",
+    "title": "What’s saved in the profile",
+    "content": "The following settings are saved in the profiles. | Naming rules | Export settings (for PDF, DWG, DGN, DWF, NWC, IFC, and Images) | . ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/ui-components/Profiles.html#whats-saved-in-the-profile",
+    "relUrl": "/docs/ui-components/Profiles.html#whats-saved-in-the-profile"
+  },"31": {
+    "doc": "Profiles",
+    "title": "Creating Profiles",
+    "content": "ProSheets profiles make it easy to save your settings and reuse them later. It is also a handy way for BIM Managers to create standard rules (e.g., filename conventions) and share them across the organization. Steps: . | In the window header, click on the plus (+) button next to the profiles list. | Name the profile (give it a meaningful name because this is the name that will show up in the profiles list) | Choose if you want to create a profile with the default ProSheets settings, with your current settings, or import settings from an existing profile. | Click on the “Create” button to create the profile. | . Note: the version on the image may not reflect the latest version of ProSheets. Tip for BIM managers: Save profiles in a shared network location so other users can import them. See Importing Profiles for the steps. ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/ui-components/Profiles.html#creating-profiles",
+    "relUrl": "/docs/ui-components/Profiles.html#creating-profiles"
+  },"32": {
+    "doc": "Profiles",
+    "title": "Use the profile as default",
+    "content": "Once you have saved your profiles with the necessary practice settings, you can also add this profile as default to all teams. Follow the steps: . | Create a profile into ProSheets. | Open the following location path %localappdata%\\DiRoots\\ProSheets\\Profiles. | Copy the Profile file from the current location. | Replace it on all users’ machines. | . The profile will now be immediately visible to users. Note: the version on the image may not reflect the latest version of ProSheets. ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/ui-components/Profiles.html#use-the-profile-as-default",
+    "relUrl": "/docs/ui-components/Profiles.html#use-the-profile-as-default"
+  },"33": {
+    "doc": "Profiles",
+    "title": "Importing Profiles",
+    "content": "ProSheets profiles make it easy to import existing profiles to stay compliant with your company standards (e.g., profiles in a network location). Steps: . | In the window header, click on the plus (+) button next to the profiles list. | Choose “Import from file(s)” to import settings from one or more existing profiles. | Click the “…” button and use the Windows File Explorer to find the profile files (e.g., in a shared folder, a network location, or your local computer). You can select several files; ProSheets creates one profile for each file. | Check the profile name. ProSheets fills it in with the file name, or with &lt;File Name&gt; when you select several files. Change it if needed; this is the name that will show up in the profiles list. | Click on the “Create” button to create the profiles. | . When you import several files, keep &lt;File Name&gt; in the profile name to name each profile after its file (for example, Office - &lt;File Name&gt;). Without it, the profiles are numbered. ProSheets asks before overwriting an existing profile with the same name. Files that cannot be read are skipped, and the reasons are displayed. When ProSheets loads a profile, it checks that the profile’s settings can be applied, for example a setting that your Revit version or this version of ProSheets does not support. Any settings that could not be applied are listed in “Profile settings that could not be applied”, together with what was used instead. Scheduled exports run the same check. Note: the version on the image may not reflect the latest version of ProSheets. ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/ui-components/Profiles.html#importing-profiles",
+    "relUrl": "/docs/ui-components/Profiles.html#importing-profiles"
+  },"34": {
+    "doc": "Profiles",
+    "title": "Deleting Profiles",
+    "content": "Steps: . | In the window header, select the from the dropdown the profile you want to delete | Click on the dustbin icon next to the profiles list. | Confirm. | . ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/ui-components/Profiles.html#deleting-profiles",
+    "relUrl": "/docs/ui-components/Profiles.html#deleting-profiles"
+  },"35": {
+    "doc": "ProSheets | Russian",
+    "title": "ProSheets tutorials and demo videos in Russian.",
+    "content": "If you have created content about ProSheets and you want to see it featured here, drop us an email at info@diroots.com . ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/Russian-tutorials.html#prosheets-tutorials-and-demo-videos-in-russian",
+    "relUrl": "/docs/Russian-tutorials.html#prosheets-tutorials-and-demo-videos-in-russian"
+  },"36": {
+    "doc": "ProSheets | Russian",
+    "title": "ProSheets | Russian",
+    "content": " ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/Russian-tutorials.html",
+    "relUrl": "/docs/Russian-tutorials.html"
+  },"37": {
+    "doc": "ProSheets | Vietnamese",
+    "title": "ProSheets tutorials and demo videos in Vietnamese.",
+    "content": "If you have created content about ProSheets and you want to see it featured here, drop us an email at info@diroots.com . ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/Vietnamese-tutorials.html#prosheets-tutorials-and-demo-videos-in-vietnamese",
+    "relUrl": "/docs/Vietnamese-tutorials.html#prosheets-tutorials-and-demo-videos-in-vietnamese"
+  },"38": {
+    "doc": "ProSheets | Vietnamese",
+    "title": "ProSheets | Vietnamese",
+    "content": " ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/Vietnamese-tutorials.html",
+    "relUrl": "/docs/Vietnamese-tutorials.html"
+  },"39": {
+    "doc": "ProSheets | English",
+    "title": "ProSheets tutorials and demo videos in English.",
+    "content": "If you have created content about ProSheets and you want to see it featured here, drop us an email at info@diroots.com . ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/english-tutorials.html#prosheets-tutorials-and-demo-videos-in-english",
+    "relUrl": "/docs/english-tutorials.html#prosheets-tutorials-and-demo-videos-in-english"
+  },"40": {
+    "doc": "ProSheets | English",
+    "title": "ProSheets | English",
+    "content": " ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/english-tutorials.html",
+    "relUrl": "/docs/english-tutorials.html"
+  },"41": {
+    "doc": "Formats Tab",
+    "title": "Formats Tab",
+    "content": " ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/ui-components/formats-tab.html",
+    "relUrl": "/docs/ui-components/formats-tab.html"
+  },"42": {
+    "doc": "Formats Tab",
+    "title": "Table of contents",
+    "content": ". | Supported File Formats | PDF Settings . | Combine sheets and views into PDF files . | Paper size and orientation of combined files | . | . | DWG Settings | DGN Settings | DWF Settings | NWC Settings | IFC Settings | Images and HTML Settings | XML Settings | . ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/ui-components/formats-tab.html#table-of-contents",
+    "relUrl": "/docs/ui-components/formats-tab.html#table-of-contents"
+  },"43": {
+    "doc": "Formats Tab",
+    "title": "Supported File Formats",
+    "content": "ProSheets allows you to batch Export Sheets/Views to PDF, DWG, DGN, DWF, NWC, IFC, IMG (BMP, JPEG, PNG, TARGA, TIFF) and XML. Note: the version on the image may not reflect the latest version of ProSheets. ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/ui-components/formats-tab.html#supported-file-formats",
+    "relUrl": "/docs/ui-components/formats-tab.html#supported-file-formats"
+  },"44": {
+    "doc": "Formats Tab",
+    "title": "PDF Settings",
+    "content": "ProSheets uses the Revit engine and a custom instance of PDF24 printer (diroots.prosheets printer) to export to PDF. ProSheets supports all Revit to PDF options plus some additional handy features. In Revit 2022 and newer, ProSheets can also export with the native Revit PDF exporter (premium feature). Supported settings: . | All PDF Revit settings . | Paper Size: set the paper size in the “Create” tab. | Paper Placement: choose to locate the print in the “Center” or assign an X and Y value to the “Offset from Corner”. | Zoom: choose the zoom for printing by selecting “Fit to page” or by setting a % value for “Zoom”. | Printer: choose the printer you want, either the “PDF24” used as standard by ProSheets or “Revit Native” (premium feature, Revit 2022 and newer). With “Revit Native”, use “Export Setup” to export with the current session settings or with one of the PDF export setups saved in the project. A saved setup fills in “Paper Placement”, “Zoom”, “Hidden Line Views”, “Appearance”, “Options”, and the choice between separate files and a single combined file. These settings cannot be changed in ProSheets while the setup is selected. | Orientation: set the orientation in the “Create” tab. | Hidden Line Views: use the radio button to remove lines using “Vector Processing” or “Raster Processing”. | Appearance: choose the “Raster Quality” and the “Colors” (“Color”, “Grayscale”, or “Black Lines”). | Options: use the checkbox to select some of the general settings you want. | File: choose whether each sheet/view is saved as a separate file or combined with others (see Combine sheets and views into PDF files). | . | . Note: the version on the image may not reflect the latest version of ProSheets. Combine sheets and views into PDF files . In the “File” group, choose how ProSheets saves the sheets/views: . | “Create separate files” - one PDF file for each sheet/view. | “Combine views/sheets into a single file” - one PDF file with all the selected sheets/views. | “Combine views/sheets into multiple files” (premium feature) - one PDF file for each group of sheets/views, for example one file for each View/Sheet Set. Below the options, ProSheets shows how many combined files it will create and how many sheets they contain. | . Steps: . | Select “Combine views/sheets into multiple files”. | In “Group by”, choose how the sheets/views are grouped: “View/Sheet Set”, “Sheet Collection” (Revit 2025 and newer), “Sheet Group”, or any other sheet or view parameter. | Click “Custom File Name” to name the files. The “Group by” parameter is added to the file name, so each file is named after its group. | Click “Order sheets and views” to set the order of the pages. In “Order by”, choose the parameter to sort by, or set your own order: select rows and move them with the arrow buttons below the list, or drag them. When you group by View/Sheet Set, “Set’s Print Order” (Revit 2023 and newer) keeps the order of each set in Revit. | Click “OK”. | . | Sheets/views with no value for the “Group by” parameter are combined in a group named “Ungrouped”. When you group by View/Sheet Set, selected sheets/views that are not in any of the sets also go to “Ungrouped”. | A sheet/view that belongs to more than one set is added to the file of each set. When you select sets in “Filter by V/S Sets” on the Selection tab, only those sets are used; otherwise all sets are used. | Sheets/views from different models are never combined in the same file. ProSheets creates the combined files separately for the main model and for each linked model. | . Note: the version on the image may not reflect the latest version of ProSheets. Paper size and orientation of combined files . | In Revit 2023 and newer, select “Keep Paper Size &amp; Orientation” to keep the paper size and orientation of each sheet in the combined file. Otherwise, all the pages of a combined file use the paper size and orientation of its first sheet. With PDF24, a combined file created with this option does not support “Jump to Section”. | In Revit 2022 and older, select “Keep jump to section” to keep Revit’s “Jump to Section” links in the combined file. All the pages then have the same size, and the sheets/views cannot be reordered. In Revit 2022 with “Revit Native”, this option is not available, and the sheets/views of a combined file cannot be reordered. | . ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/ui-components/formats-tab.html#pdf-settings",
+    "relUrl": "/docs/ui-components/formats-tab.html#pdf-settings"
+  },"45": {
+    "doc": "Formats Tab",
+    "title": "DWG Settings",
+    "content": "ProSheets uses the Revit engine to export to DWG. All the DWG settings will be read from the DWG export setups created in Revit. Steps: . | In Revit UI go to File -&gt; Export -&gt; DWG and create a new DWG/DXF export setup as per your requirements (if you don’t know how to create/modify a DWG/DXF setup, read this article) . | Use the dropdown to switch between the existing DWG setups. If you created the setup with ProSheets opened, you may need to close and reopen it to see the new setup in the list. | Select the checkbox to “Export views on sheets and links as external references”. | Use the checkbox to “Bind Images as OLE in DWG File” (premium feature). | Use the checkbox to “Apply portrait layout correction” (premium feature). Revit exports portrait sheets with a landscape layout; this option keeps them portrait. | In the “File” group, choose how the views/sheets are saved: . | “Create separate files” - one DWG file for each sheet/view. | “Combine views/sheets into a single file” (premium feature) - one DWG file, with each sheet as a layout. | “Combine views/sheets into multiple files” (premium feature) - one DWG file for each value of the parameter you choose in “Group by”, for example one file for each sheet issue date. ProSheets shows how many files it will create. | . For combined files, use “Custom File Name” to name the files and “Order sheets and views” to set the order of the layouts. | . To create an export group, open DWG Export and select Modify Export Setup in the Select Export Setup group. In Revit 2019 and newer, the DWG settings also include “Bind Images as OLE in DWG File” and the “File” group, and “Apply portrait layout correction” works only in Revit 2019 and newer. Binding images, correcting portrait layouts and combining DWG files require AutoCAD 2019 or later. Note: the version on the image may not reflect the latest version of ProSheets. Note: the version on the image may not reflect the latest version of ProSheets. ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/ui-components/formats-tab.html#dwg-settings",
+    "relUrl": "/docs/ui-components/formats-tab.html#dwg-settings"
+  },"46": {
+    "doc": "Formats Tab",
+    "title": "DGN Settings",
+    "content": "ProSheets uses the Revit engine to export to DGN. All the DGN settings will be read from the DGN export setups created in Revit. Steps: . | In Revit UI go to File -&gt; Export -&gt; DGN and create a new DGN export setup as per your requirements (if you don’t know how to create/modify a DGN setup, read this article) | Use the dropdown to switch between the existing DGN setups. If you created the setup with ProSheets opened, you may need to close and reopen it to see the new setup in the list. | . Note: the version on the image may not reflect the latest version of ProSheets. ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/ui-components/formats-tab.html#dgn-settings",
+    "relUrl": "/docs/ui-components/formats-tab.html#dgn-settings"
+  },"47": {
+    "doc": "Formats Tab",
+    "title": "DWF Settings",
+    "content": "ProSheets uses the Revit engine to export to DWF/DWFx. Supported settings: . | Format: “DWF” or “DWFx”. | DWF Options: “Export Element Properties”, “Rooms, Spaces and Areas geometry”, “Export Textures”, “Image Format” and “Image Quality”. | Paper Placement, Zoom, Hidden Line Views (“Remove Lines Using”), Appearance and Options: the same settings as for PDF. | File: “Create separate files” or “Combine views/sheets into a single file”. | . Note: the version on the image may not reflect the latest version of ProSheets. ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/ui-components/formats-tab.html#dwf-settings",
+    "relUrl": "/docs/ui-components/formats-tab.html#dwf-settings"
+  },"48": {
+    "doc": "Formats Tab",
+    "title": "NWC Settings",
+    "content": "ProSheets uses the Autodesk Navisworks NWC Export Utility to export to NWC. You must install the Autodesk Navisworks NWC Export Utility (if it’s not yet installed). The NWC settings include “Type properties on Elements” and “Separate Custom properties”. Due to a Revit limitation, changes to these two settings do not affect further NWC exports in the current Revit session. Restart Revit for the changes to take effect. Note: the version on the image may not reflect the latest version of ProSheets. ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/ui-components/formats-tab.html#nwc-settings",
+    "relUrl": "/docs/ui-components/formats-tab.html#nwc-settings"
+  },"49": {
+    "doc": "Formats Tab",
+    "title": "IFC Settings",
+    "content": "ProSheets uses the Revit engine to export to IFC. The IFC settings are grouped in the same tabs as in Revit: “General”, “Additional Contents”, “Property Sets”, “Level of Detail” and “Advanced”. When Revit has loaded and activated Autodesk’s open-source IFC exporter, ProSheets uses it and offers its IFC versions and saved setups. In Revit 2025 and newer, the IFC settings also include “Export Ceiling Grids” and, for IFC4x3, “Facility Type”. “Facility Predefined Type” appears only for facility types that have predefined types. Note: the version on the image may not reflect the latest version of ProSheets. ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/ui-components/formats-tab.html#ifc-settings",
+    "relUrl": "/docs/ui-components/formats-tab.html#ifc-settings"
+  },"50": {
+    "doc": "Formats Tab",
+    "title": "Images and HTML Settings",
+    "content": "ProSheets uses the Revit engine to export to Images and HTML. Supported settings: . | Image Size: “Fit to” a number of pixels in the “Horizontal” or “Vertical” direction, or “Zoom to” a % of actual size. | File type for “Shaded Views” and “Non Shaded Views”: BMP, JPEG (Lossless, Medium or Smallest), PNG, TARGA or TIFF. | “Raster Image Quality”. | File: “Create separate images” or “Combine multiple views/sheets into a single HTML file”. | . Note: the version on the image may not reflect the latest version of ProSheets. ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/ui-components/formats-tab.html#images-and-html-settings",
+    "relUrl": "/docs/ui-components/formats-tab.html#images-and-html-settings"
+  },"51": {
+    "doc": "Formats Tab",
+    "title": "XML Settings",
+    "content": "ProSheets uses the selected Sheets and Views parameters to build an XML document or fragment. It also supports Project Information parameters, environment variables (such as Date and Time), and custom Elements. A default XML element name is created from the parameter name, but it can be overridden. Note: the version on the image may not reflect the latest version of ProSheets. Let’s move on to the next step. After defining the formats you want, click on “Next” to go to the create settings. ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/ui-components/formats-tab.html#xml-settings",
+    "relUrl": "/docs/ui-components/formats-tab.html#xml-settings"
+  },"52": {
+    "doc": "Getting Started",
+    "title": "Getting Started",
+    "content": "Use this guide to install, update, and uninstall ProSheets. ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/getting-started.html",
+    "relUrl": "/docs/getting-started.html"
+  },"53": {
+    "doc": "Getting Started",
+    "title": "Table of contents",
+    "content": ". | Download | Install . | Compatibility | Prerequisites | Standard Installation | Silent Installation | . | Uninstall . | Using the installer User Interface | Using the installer silently | From the control panel | . | Updates . | Updater Settings | . | . ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/getting-started.html#table-of-contents",
+    "relUrl": "/docs/getting-started.html#table-of-contents"
+  },"54": {
+    "doc": "Getting Started",
+    "title": "Download",
+    "content": "Download the latest version of ProSheets. ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/getting-started.html#download",
+    "relUrl": "/docs/getting-started.html#download"
+  },"55": {
+    "doc": "Getting Started",
+    "title": "Install",
+    "content": "Compatibility . | Revit 2018 to 2027. | Use a Windows version supported by your Revit release. See Autodesk’s system requirements. | . Prerequisites . | Admin permissions. | PDF24 (the compatible version will be installed automatically. Don’t install it manually). | . ProSheets is installed for all users on the machine. Its add-in files are stored in %ProgramData%\\Autodesk\\Revit\\Addins\\&lt;Revit version&gt;\\, and for Revit 2027 and newer in %ProgramFiles%\\Autodesk\\Revit\\Addins\\&lt;Revit version&gt;\\. Standard Installation . This method is intended for users with administrator permissions who want to install ProSheets on one computer. | Run ProSheets installer. | Select the Revit versions and click ‘Install’. | Wait for the installation to complete and click ‘Finish’. | Restart your computer to complete the installation. | . Silent Installation . This method is intended for IT administrators who want to deploy ProSheets to multiple computers. | Install for all compatible Revit versions. &lt;installer-name&gt;.exe /i // /qn accept_eula=1 . | Disable automatic check for update (i.e., users won’t be prompted to install updates). &lt;installer-name&gt;.exe /i // /qn accept_eula=1 UPDATER=\"FALSE\" . | Exclude specific Revit versions. All available Revit versions are selected by default; set the property of each version to skip to an empty value. &lt;installer-name&gt;.exe /i // /qn accept_eula=1 checkbox2018=\"\" checkbox2019=\"\" . | Skip PDF24 installation. You can export PDFs without PDF24 by using the native Revit PDF exporter in Revit 2022 or newer with a ProSheets Premium license. &lt;installer-name&gt;.exe /i // /qn accept_eula=1 INSTALL_PDF24=\"\" . | . ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/getting-started.html#install",
+    "relUrl": "/docs/getting-started.html#install"
+  },"56": {
+    "doc": "Getting Started",
+    "title": "Uninstall",
+    "content": "Using the installer User Interface . | Run ProSheets installer. | Select and click ‘Remove’. | Wait for the uninstallation to complete, then click ‘Finish’. | . PDF24 is not removed when you uninstall ProSheets. Uninstall PDF24 separately if you no longer need it. Using the installer silently . Uninstall ProSheets without user interaction. &lt;installer-name&gt;.exe /x // /qn . From the control panel . | In the search box on the taskbar, type Control Panel and select it from the results. | Select Programs &gt; Programs and Features. | Press and hold (or right-click) on the program you want to remove and select Uninstall or Uninstall/Change. Then follow the directions on the screen. | . ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/getting-started.html#uninstall",
+    "relUrl": "/docs/getting-started.html#uninstall"
+  },"57": {
+    "doc": "Getting Started",
+    "title": "Updates",
+    "content": "ProSheets includes an updater to help you keep it up to date. The updater will: . | notify you whenever a new version is released (the action is triggered on Revit close event). | ask you to install now or to remind you tomorrow. | . Updater Settings . The updater checks for updates every two days by default. You can change the frequency and download folder. By default, update checks cannot be disabled in the updater settings. To check less often, set the frequency to 365 days. Pro Tip for IT administrators: To change how often ProSheets checks for updates across the machine, edit %ProgramData%\\ProSheets\\Settings\\updater.ini and change CheckFrequency=2 to CheckFrequency=365. We recommend keeping ProSheets up to date. Support is not provided for outdated versions. ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/getting-started.html#updates",
+    "relUrl": "/docs/getting-started.html#updates"
+  },"58": {
+    "doc": "About",
+    "title": "ProSheets | Autodesk Revit Plugin.",
+    "content": ". ProSheets is an Autodesk Revit Add-in to export Views and Sheets to PDF, DWG, DGN, DWF, NWC, IFC, IMG (BMP, JPEG, PNG, TARGA, TIFF) and XML. ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/#prosheets--autodesk-revit-plugin",
+    "relUrl": "/#prosheets--autodesk-revit-plugin"
+  },"59": {
+    "doc": "About",
+    "title": "Core Features",
+    "content": ". | Batch Export Sheets/Views to PDF, DWG, DGN, DWF, NWC, IFC, IMG (BMP, JPEG, PNG, TARGA, TIFF) and XML. | Export sheets and views from linked models together with the main model (premium feature) | Auto detection of paper size and orientation (based on the Title Block family Sheet Width and Height) | Custom Parametric Filename (e.g., Sheet Name + Sheet Number + Revision Number). Plus: custom parameters and separators | Save the export settings to Profiles | Import Profiles from a any location (e.g., shared folder, network location, etc.) | Schedule exports with date/time and repeat frequency to be made automatically, even when Revit is closed (premium feature) | Available in English, French, German, Spanish, Portuguese (Brazil), and Chinese (Simplified). ProSheets follows Revit’s language by default; to choose another language, go to File &gt; Options in Revit and open the “DiRoots” tab | . Download . ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/#core-features",
+    "relUrl": "/#core-features"
+  },"60": {
+    "doc": "About",
+    "title": "About",
+    "content": " ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/",
+    "relUrl": "/"
+  },"61": {
+    "doc": "Video Tutorials",
+    "title": "Video Tutorials",
+    "content": "In this section you can find video tutorials developed by DiRoots and the individual contributers. A big thank you all the AEC professionals for the time invested in creating content about ProSheets. ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/other-resources.html",
+    "relUrl": "/docs/other-resources.html"
+  },"62": {
+    "doc": "ProSheets | Portuguese",
+    "title": "ProSheets tutorials and demo videos in Portuguese.",
+    "content": "If you have created content about ProSheets and you want to see it featured here, drop us an email at info@diroots.com . ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/portuguese-tutorials.html#prosheets-tutorials-and-demo-videos-in-portuguese",
+    "relUrl": "/docs/portuguese-tutorials.html#prosheets-tutorials-and-demo-videos-in-portuguese"
+  },"63": {
+    "doc": "ProSheets | Portuguese",
+    "title": "ProSheets | Portuguese",
+    "content": " ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/portuguese-tutorials.html",
+    "relUrl": "/docs/portuguese-tutorials.html"
+  },"64": {
+    "doc": "Search",
+    "title": "Search",
+    "content": " ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/search.html",
+    "relUrl": "/docs/search.html"
+  },"65": {
+    "doc": "Search",
+    "title": "Table of contents",
+    "content": ". | TOC | . Just the Docs uses lunr.js to add a client-side search interface powered by a JSON index that Jekyll generates. All search results are shown in an auto-complete style interface (there is no search results page). By default, all generated HTML pages are indexed using the following data points: . | Page title | Page content | Page URL | . ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/search.html#table-of-contents",
+    "relUrl": "/docs/search.html#table-of-contents"
+  },"66": {
+    "doc": "Search",
+    "title": "Enable search in configuration",
+    "content": "In your site’s _config.yml, enable search: . # Enable or disable the site search # Supports true (default) or false search_enabled: true . Search granularity . Pages are split into sections that can be searched individually. The sections are defined by the headings on the page. Each section is displayed in a separate search result. # Split pages into sections that can be searched individually # Supports 1 - 6, default: 2 search.heading_level: 2 . Search previews . A search result can contain previews that show where the search words are found in the specific section. # Maximum amount of previews per search result # Default: 3 search.previews: 3 # Maximum amount of words to display before a matched word in the preview # Default: 5 search.preview_words_before: 5 # Maximum amount of words to display after a matched word in the preview # Default: 10 search.preview_words_after: 10 . Search tokenizer . The default is for hyphens to separate tokens in search terms: gem-based is equivalent to gem based, matching either word. To allow search for hyphenated words: . # Set the search token separator # Default: /[\\s\\-/]+/ # Example: enable support for hyphenated search words search.tokenizer_separator: /[\\s/]+/ . Display URL in search results . # Display the relative url in search results # Supports true (default) or false search.rel_url: false . Display search button . The search button displays in the bottom right corner of the screen and triggers the search input when clicked. # Enable or disable the search button that appears in the bottom right corner of every page # Supports true or false (default) search.button: true . ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/search.html#enable-search-in-configuration",
+    "relUrl": "/docs/search.html#enable-search-in-configuration"
+  },"67": {
+    "doc": "Search",
+    "title": "Hiding pages from search",
+    "content": "Sometimes you might have a page that you don’t want to be indexed for the search nor to show up in search results, e.g, a 404 page. To exclude a page from search, add the search_exclude: true parameter to the page’s YAML front matter: . Example . --- layout: default title: Page not found nav_exclude: true search_exclude: true --- . ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/search.html#hiding-pages-from-search",
+    "relUrl": "/docs/search.html#hiding-pages-from-search"
+  },"68": {
+    "doc": "Search",
+    "title": "Generate search index when used as a gem",
+    "content": "If you use Just the Docs as a remote theme, you do not need the following steps. If you use the theme as a gem, you must initialize the search by running this rake command that comes with just-the-docs: . $ bundle exec just-the-docs rake search:init . This command creates the assets/js/zzzz-search-data.json file that Jekyll uses to create your search index. Alternatively, you can create the file manually with this content. ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/search.html#generate-search-index-when-used-as-a-gem",
+    "relUrl": "/docs/search.html#generate-search-index-when-used-as-a-gem"
+  },"69": {
+    "doc": "Selection Tab",
+    "title": "Selection Tab",
+    "content": "The Selection tab is where you’ll select the sheets and views to be exported and the file naming rules. ProSheets has options to sort, filter, and search to ease the selection. Plus, it has an advanced naming rule builder that allows you to customize the filenames. ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/ui-components/selection-tab.html#selection-tab",
+    "relUrl": "/docs/ui-components/selection-tab.html#selection-tab"
+  },"70": {
+    "doc": "Selection Tab",
+    "title": "Table of contents",
+    "content": ". | Select Sheets and Views or View/Sheet Sets . | Add Parameters columns | Filter | Search | . | Export from linked models | Custom File Name | Clear selection | Advanced Settings | . ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/ui-components/selection-tab.html#table-of-contents",
+    "relUrl": "/docs/ui-components/selection-tab.html#table-of-contents"
+  },"71": {
+    "doc": "Selection Tab",
+    "title": "Select Sheets and Views or View/Sheet Sets",
+    "content": "The first step is to select the sheets and views to be exported. Steps: . | Click the radio buttons to switch between sheets and views. | The ‘Sheets’ radio button shows the existing sheets in the project. | The ‘Views’ radio button shows the existing views in the project. | . | Use the checkboxes to select specific sheets/views or use the checkbox in the table header to select all the sheets/views that match the current filters and search, including rows in collapsed model groups. Note: the version on the image may not reflect the latest version of ProSheets. | Select the “Show only open sheets/views” option (premium feature) to show only the sheets and views that are open in Revit. Note: the version on the image may not reflect the latest version of ProSheets. | . Add Parameters columns . Right-click on the table header to select any other instance parameter available on your sheets. Examples - Current Review Date, Approved By, Appears on Sheet List, etc. Note: the version on the image may not reflect the latest version of ProSheets. Filter . Filtering options available: . | Dropdown to filter by view type (e.g., 3D, Floor Plan, Section, Detail, etc.). Note: the version on the image may not reflect the latest version of ProSheets. | Select several sheets/views and use “Save V/S Set” to save them as a new set. Use “Filter by V/S Sets” to show only the sheets/views of the sets you choose. Choosing a set filters the list; it does not select the sheets/views. | . Note: the version on the image may not reflect the latest version of ProSheets. Search . The search box will search for text contained in any of the existing columns (including the customizable column). Click the clear (X) button in the search box to clear the search. For example, you can find Sheets by: . | Sheet Number | Sheet Name | Revision | Size (e.g., A1, A0, etc.) | Any instance parameter available in the customizable column | Custom filename | . For example, you can find Views by: . | View Name | Scale | Detail Level | Discipline | Custom filename | . Note: the version on the image may not reflect the latest version of ProSheets. ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/ui-components/selection-tab.html#select-sheets-and-views-or-viewsheet-sets",
+    "relUrl": "/docs/ui-components/selection-tab.html#select-sheets-and-views-or-viewsheet-sets"
+  },"72": {
+    "doc": "Selection Tab",
+    "title": "Export from linked models",
+    "content": "ProSheets can export sheets and views from the Revit models linked into the main model (premium feature), together with the main model’s own sheets and views, without manually opening each model. Steps: . | Open the “Linked Files” dropdown and choose the models to list: “All Files”, or select the main model and the linked models you need. | Click the arrow on a model’s header to collapse or expand its sheets/views. When more than one model is selected in “Linked Files”, the list is grouped by model, and the main model is marked “(Main)”. | Use the checkboxes to select the sheets/views to export from any of the models. | . Note: the version on the image may not reflect the latest version of ProSheets. | When you combine sheets/views into one file, ProSheets creates a combined file for each linked model. | Sheets and views from linked models cannot be saved in a View/Sheet Set. | The linked models must be loaded and available. A linked cloud model needs you to be signed in to your Autodesk account. | Scheduled exports can include linked models (see Linked models in scheduled exports). | . For some exports ProSheets has to close the main model to export from its linked models: NWC, IFC, and image exports, linked models with nested links or a link back to the main model, and all exports in Revit 2020 and older. Before a manual export, ProSheets asks first. Nothing is saved, so any unsaved changes are lost. Keep “Reopen the file after exporting” selected to open the main model again when the export is done. When an export requires closing the main model, that model must have a saved location so ProSheets can reopen it. ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/ui-components/selection-tab.html#export-from-linked-models",
+    "relUrl": "/docs/ui-components/selection-tab.html#export-from-linked-models"
+  },"73": {
+    "doc": "Selection Tab",
+    "title": "Custom File Name",
+    "content": "The custom file name builder allows you to quickly set how you want your files to be named. Main features: . | Parametric filenaming (using Sheet/View and Project Information parameters) | Set custom field separators (e.g., SheetName-SheetNumber_Rev1) | Custom Prefix and Suffix | Other non-Revit parameters (e.g., Current Month, Day, Hour, etc.) | Custom Name Preview | . Note: the version on the image may not reflect the latest version of ProSheets. ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/ui-components/selection-tab.html#custom-file-name",
+    "relUrl": "/docs/ui-components/selection-tab.html#custom-file-name"
+  },"74": {
+    "doc": "Selection Tab",
+    "title": "Clear selection",
+    "content": "Quickly clear the current selection. ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/ui-components/selection-tab.html#clear-selection",
+    "relUrl": "/docs/ui-components/selection-tab.html#clear-selection"
+  },"75": {
+    "doc": "Selection Tab",
+    "title": "Advanced Settings",
+    "content": "Set some advanced settings as defaults for your prints, using the radio button to set the desired setting. | Temporary Hide/Isolate . | Turn off the Temporary Hide/Isolate mode before printing | Keep the Temporary Hide/Isolate mode on and print | . | Worksharing Display . | Turn off the Worksharing Display mode before printing | Keep the Worksharing Display mode on and print | . | Reveal Hidden Elements . | Turn off the Reveal Hidden Elements mode before printing | Keep the Reveal Hidden Elements mode on and print | . | Reveal Constraints . | Turn off the Reveal Constraints mode before printing | Keep the Reveal Constraints mode on and print | . | Ribbon Tab Placement . | “ProSheets”: place ProSheets in its own tab | “DiRootsOne”: place ProSheets inside the DiRootsOne tab | . Changes apply after restarting Revit. Note: the version on the image may not reflect the latest version of ProSheets. | . Let’s move on to the next step. After selecting the sheets/views you want, click on “Next” to go to the format settings. ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/ui-components/selection-tab.html#advanced-settings",
+    "relUrl": "/docs/ui-components/selection-tab.html#advanced-settings"
+  },"76": {
+    "doc": "Selection Tab",
+    "title": "Selection Tab",
+    "content": ". ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/ui-components/selection-tab.html",
+    "relUrl": "/docs/ui-components/selection-tab.html"
+  },"77": {
+    "doc": "ProSheets | Spanish",
+    "title": "ProSheets tutorials and demo videos in Spanish.",
+    "content": "If you have created content about ProSheets and you want to see it featured here, drop us an email at info@diroots.com . ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/spanish-tutorials.html#prosheets-tutorials-and-demo-videos-in-spanish",
+    "relUrl": "/docs/spanish-tutorials.html#prosheets-tutorials-and-demo-videos-in-spanish"
+  },"78": {
+    "doc": "ProSheets | Spanish",
+    "title": "ProSheets | Spanish",
+    "content": " ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/spanish-tutorials.html",
+    "relUrl": "/docs/spanish-tutorials.html"
+  },"79": {
+    "doc": "Tables",
+    "title": "Tables",
+    "content": "Tables are responsive by default, allowing wide tables to have a horizontal scroll to access columns outside of the normal viewport. | head1 | head two | three | . | ok | good swedish fish | nice | . | out of stock | good and plenty | nice | . | ok | good oreos | hmm | . | ok | good zoute drop | yumm | . | head1 | head two | three |:-------------|:------------------|:------| ok | good swedish fish | nice | out of stock | good and plenty | nice | ok | good `oreos` | hmm | ok | good `zoute` drop | yumm | . ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/ui-components/tables.html",
+    "relUrl": "/docs/ui-components/tables.html"
+  },"80": {
+    "doc": "ProSheets | Ukrainian",
+    "title": "ProSheets tutorials and demo videos in Ukrainian.",
+    "content": "If you have created content about ProSheets and you want to see it featured here, drop us an email at info@diroots.com . ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/ukrainian-tutorials.html#prosheets-tutorials-and-demo-videos-in-ukrainian",
+    "relUrl": "/docs/ukrainian-tutorials.html#prosheets-tutorials-and-demo-videos-in-ukrainian"
+  },"81": {
+    "doc": "ProSheets | Ukrainian",
+    "title": "ProSheets | Ukrainian",
+    "content": " ",
+    "url": "/DiRoots.Sandbox.ProSheets.Releases/previews/pr-4/docs/ukrainian-tutorials.html",
+    "relUrl": "/docs/ukrainian-tutorials.html"
+  }
+}
